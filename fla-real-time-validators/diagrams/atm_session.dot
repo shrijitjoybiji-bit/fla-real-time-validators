@@ -1,0 +1,18 @@
+digraph "atm_session" {
+  rankdir=LR;
+  __start [shape=point];
+  "A0" [shape=circle];
+  "A1" [shape=circle];
+  "A2" [shape=circle];
+  "OPEN" [shape=doublecircle];
+  "LOCKED" [shape=circle];
+  __start -> "A0";
+  "A0" -> "OPEN" [label="C"];
+  "A0" -> "A1" [label="W"];
+  "A1" -> "OPEN" [label="C"];
+  "A1" -> "A2" [label="W"];
+  "A2" -> "OPEN" [label="C"];
+  "A2" -> "LOCKED" [label="W"];
+  "OPEN" -> "OPEN" [label="C,W"];
+  "LOCKED" -> "LOCKED" [label="C,W"];
+}
